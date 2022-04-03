@@ -6,18 +6,15 @@
     @mouseleave="setTimeoutFunction"
   >
     <div class="spinner" v-if="spinner">
-      <v-progress-circular
-        indeterminate
-        color="var(--primary-color)"
-      ></v-progress-circular>
+      <v-progress-circular indeterminate color="var(--primary-color)"></v-progress-circular>
     </div>
     <video
       ref="videoPlayer"
       class="video__player"
       @loadedmetadata="updateVideoDetails"
       @timeupdate="updateVideoDetails"
-      controlsList="nodownload"
-      onContextMenu="return false;"
+      controlslist="nodownload"
+      oncontextmenu="return false;"
       @waiting="spinner = true"
       @canplay="spinner = false"
     >
@@ -33,10 +30,7 @@
           class="video__controls__progress"
           @click.prevent.stop="handleProgressClick"
         >
-          <div
-            class="video__controls__progress__track"
-            :style="{ width: progress + '%' }"
-          >
+          <div class="video__controls__progress__track" :style="{ width: progress + '%' }">
             <div
               class="video__controls__progress__track--watching"
               :style="{ left: progress + '%' }"
@@ -54,27 +48,19 @@
           </button>
 
           <div class="video__controls__duration">
-            <span>{{ currentTimeFormatted }}</span
-            >/<span>{{ durationFormatted }}</span>
+            <span>{{ currentTimeFormatted }}</span>/
+            <span>{{ durationFormatted }}</span>
           </div>
         </div>
         <div class="video__controls__configs">
           <div class="video__controls__volume">
-            <button
-              @click.stop="volumeOptionsOpen = !volumeOptionsOpen"
-              ref="volumeTrack"
-            >
-              <v-icon v-if="volume < 0.1" style="color: #fff"
-                >mdi-volume-low</v-icon
-              >
+            <button @click.stop="volumeOptionsOpen = !volumeOptionsOpen" ref="volumeTrack">
+              <v-icon v-if="volume < 0.1" style="color: #fff">mdi-volume-low</v-icon>
               <v-icon
                 v-else-if="volume >= 0.1 && volume < 0.8"
                 style="color: #fff"
-                >mdi-volume-medium</v-icon
-              >
-              <v-icon v-else-if="volume >= 0.8" style="color: #fff"
-                >mdi-volume-high</v-icon
-              >
+              >mdi-volume-medium</v-icon>
+              <v-icon v-else-if="volume >= 0.8" style="color: #fff">mdi-volume-high</v-icon>
             </button>
             <div
               v-if="volumeOptionsOpen"
@@ -107,39 +93,27 @@
               <div
                 @click.stop="handleVideoPlaybackRate(2.0)"
                 :class="{ active: !!(speed === '2x') }"
-              >
-                2x
-              </div>
+              >2x</div>
               <div
                 @click.stop="handleVideoPlaybackRate(1.75)"
                 :class="{ active: !!(speed === '1.75x') }"
-              >
-                1.75x
-              </div>
+              >1.75x</div>
               <div
                 @click.stop="handleVideoPlaybackRate(1.5)"
                 :class="{ active: !!(speed === '1.5x') }"
-              >
-                1.5x
-              </div>
+              >1.5x</div>
               <div
                 @click.stop="handleVideoPlaybackRate(1.0)"
                 :class="{ active: !!(speed === '1x') }"
-              >
-                1x
-              </div>
+              >1x</div>
               <div
                 @click.stop="handleVideoPlaybackRate(0.75)"
                 :class="{ active: !!(speed === '0.75x') }"
-              >
-                0.75x
-              </div>
+              >0.75x</div>
               <div
                 @click.stop="handleVideoPlaybackRate(0.5)"
                 :class="{ active: !!(speed === '0.5x') }"
-              >
-                0.5x
-              </div>
+              >0.5x</div>
             </div>
           </div>
         </div>
@@ -304,7 +278,7 @@ export default {
 
 <style>
 :root {
-  --primary-color: #f17;
+  --primary-color: #41b883;
   --control-background-color: rgba(45, 45, 45, 0.867);
   --top-options: -145px;
 }
